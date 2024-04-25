@@ -1,4 +1,0 @@
-streamlit
-pandas
-matplotlib.pyplot 
-mlxtend.frequent_patterns 
