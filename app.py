@@ -6,9 +6,7 @@ from mlxtend.frequent_patterns import association_rules, apriori
 st.title('''  Market Basket Analysis Results''')
 
 #load dataset
-
 df = pd.read_excel('cleaned_dataset_global (1).xlsx')
-
 
 df["single_transaction"] = df["Customer ID"].astype(str)+'_'+df['Order Date'].astype(str)
 
@@ -28,7 +26,7 @@ basket_input = df1.map(encode)
 frequent_itemsets = apriori(basket_input, min_support = 0.001, use_colnames=True)
 
 rules = association_rules(frequent_itemsets, metric = "lift", min_threshold=1)
-
+st.write(rules)
 ###### MBA using Segments to train the dataset
 ## For Segment 1
 
@@ -65,9 +63,6 @@ st.pyplot(fig)
 speed_options = ['1','2','3','4','5','6','7','8','9','10']
 Lift = st.select_slider("Lift Threshold", options=speed_options)
 
-#Selection
-Country = df['Country'].unique()
-selected_column1 = st.selectbox("Select Country :", Country)
 
 Segment = df['Segment'].unique()
 selected_column2 = st.selectbox("Select Segment :", Segment)
