@@ -5,8 +5,6 @@ from mlxtend.frequent_patterns import association_rules, apriori
 import plotly.express as px
 import seaborn as sns
 
-st.title('''  Market Basket Analysis Results''')
-
 #load dataset
 df = pd.read_excel('cleaned_dataset_global (1).xlsx')
 
@@ -84,4 +82,12 @@ s3_sets = s3.applymap(encode_units)
 frequent_itemsets_s3 = apriori(s3_sets, min_support=0.001, use_colnames = True)
 rules_s3 = association_rules(frequent_itemsets_s3, metric = "lift", min_threshold=1)
 
+#add a header
+st.header('  Minger Company', divider = 'red')
+#add subheader
+st.subheader('Market Basket Analysis Results: Recommended Items from the dataset')
 
+#selecting Segments
+Segment_names = ['Consumer','Home Office','Corporate']
+#add radio button
+Segment = st.radio('Select Segment:', Segment_names)
