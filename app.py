@@ -91,3 +91,10 @@ st.subheader('Market Basket Analysis Results: Recommended Items from the dataset
 Segment_names = ['Consumer','Home Office','Corporate']
 #add radio button
 Segment = st.radio('Select Segment:', Segment_names)
+
+#Selecting Countries
+Country = df["Country"].unique()
+#Add a Slider
+Options = Country
+
+Country_Slider = st.selectbox('Select Countrt: ',options= Options)
