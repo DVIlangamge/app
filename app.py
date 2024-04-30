@@ -46,6 +46,14 @@ s1_sets = s1.map(encode_units)
 frequent_itemsets_s1 = apriori(s1_sets, min_support=0.001, use_colnames = True)
 rules_s1 = association_rules(frequent_itemsets_s1, metric = "lift", min_threshold=1)
 
+#vis1(heatmap) code
+heatmap_data1 = rules_s1.pivot(index='antecedents', columns='consequents', values='lift')
+fig1, ax1 = plt.subplots()
+ax1.pcolor(heatmap_data1)
+ax1.set_xlabel('Consequents')
+ax1.set_ylabel('Antecedents')
+sns.heatmap(heatmap_data1, annot=True, cmap='coolwarm', fmt=".2f", ax=ax1)
+
 ## For Segment 2
 s2 = (df[df["Segment"] == "Home Office"]
      .groupby(["Order ID", "Sub-Category"])["Quantity"]
@@ -62,6 +70,14 @@ s2_sets = s2.applymap(encode_units)
 
 frequent_itemsets_s2 = apriori(s2_sets, min_support=0.001, use_colnames = True)
 rules_s2 = association_rules(frequent_itemsets_s2, metric = "lift", min_threshold=1)
+
+#Data Visualization for Segment 2
+heatmap_data2 = rules_s2.pivot(index='antecedents', columns='consequents', values='lift')
+fig2, ax2 = plt.subplots()
+ax2.pcolor(heatmap_data2)
+ax2.set_xlabel('Consequents')
+ax2.set_ylabel('Antecedents')
+sns.heatmap(heatmap_data2, annot=True, cmap='coolwarm', fmt=".2f", ax=ax2)
 
 ## For Segment 3
 
@@ -82,19 +98,37 @@ s3_sets = s3.applymap(encode_units)
 frequent_itemsets_s3 = apriori(s3_sets, min_support=0.001, use_colnames = True)
 rules_s3 = association_rules(frequent_itemsets_s3, metric = "lift", min_threshold=1)
 
+#Data Visualization for Segment 3
+heatmap_data3 = rules_s3.pivot(index='antecedents', columns='consequents', values='lift')
+fig3, ax3 = plt.subplots()
+ax3.pcolor(heatmap_data3)
+ax3.set_xlabel('Consequents')
+ax3.set_ylabel('Antecedents')
+sns.heatmap(heatmap_data3, annot=True, cmap='coolwarm', fmt=".2f", ax=ax3)
+
 #add a header
 st.header('  Minger Company', divider = 'red')
 #add subheader
 st.subheader('Market Basket Analysis Results: Recommended Items from the dataset')
+
+#Data Visualization for the dataset
+heatmap_data = rules.pivot(index='antecedents', columns='consequents', values='lift')
+fig, ax = plt.subplots()
+ax.pcolor(heatmap_data)
+ax.set_xlabel('Consequents')
+ax.set_ylabel('Antecedents')
+sns.heatmap(heatmap_data, annot=True, cmap='coolwarm', fmt=".2f", ax=ax)
+st.pyplot(fig)
 
 #selecting Segments
 Segment_names = ['Consumer','Home Office','Corporate']
 #add radio button
 Segment = st.radio('Select Segment:', Segment_names)
 
-#Selecting Countries
-Country = df["Country"].unique()
-#Add a Slider
-Options = Country
-
-Country_Slider = st.selectbox('Select Countrt: ',options= Options)
+#Data visualization for each segment
+if 'Consumer' in Segment:
+    st.pyplot(fig1)
+if 'Home Office' in Segment:
+    st.pyplot(fig2)
+if 'Corporate' in Segment:
+    st.pyplot(fig3)
