@@ -123,34 +123,48 @@ st.pyplot(fig_p)
 mOptions = ['None','Africa','APAC','Canada','EMEA','EU','LATAM','US']
 selectbox = st.selectbox('Select the Market:',options = mOptions)
 
-#Visualizations
+Visualizations
 if selectbox == 'Africa':
-    graph1 = px.bar(df[df['Market']=='Africa'],x= 'Segment',y='Sales', height =500 , width = 500, title = 'Sales of Segment by Market Africa')
-    graph1.show()
+    fig_s1, ax_s1 = plt.subplots()
+    data_s1 = df[df['Market'] == 'Africa']
+    sns.barplot(data_s1, x='Segment', y='Sales')
+    st.pyplot(fig_s1)
 
 if selectbox == 'APAC':
-    graph2 = px.bar(df[df['Market']== 'APAC'], x= 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market APAC')
-    graph2.show()
+    fig_s2, ax_s2 = plt.subplots()
+    data_s2 = df[df['Market'] == 'APAC']
+    sns.barplot(data_s2, x='Segment', y='Sales')
+    st.pyplot(fig_s2)
 
 if selectbox == 'Canada':
-    grpah3 = px.bar(df[df['Market'] == 'Canada'], x = 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market Canada')
-    grpah3.show()
+    fig_s3, ax_s3 = plt.subplots()
+    data_s3 = df[df['Market'] == 'Canada']
+    sns.barplot(data_s3, x='Segment', y='Sales')
+    st.pyplot(fig_s3)
 
 if selectbox == 'EMEA':
-    grpah4 = px.bar(df[df['Market'] == 'EMEA'], x = 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market EMEA')
-    grpah4.show()
+    fig_s4, ax_s4 = plt.subplots()
+    data_s4 = df[df['Market'] == 'EMEA']
+    sns.barplot(data_s4, x='Segment', y='Sales')
+    st.pyplot(fig_s4)
 
 if selectbox == 'EU':
-    grpah5 = px.bar(df[df['Market'] == 'EU'], x = 'Segment', y='Sales', height= 500, width = 500,title = 'Sales of Segment by Market EU')
-    grpah5.show()
+    fig_s5, ax_s5 = plt.subplots()
+    data_s5 = df[df['Market'] == 'EU']
+    sns.barplot(data_s5, x='Segment', y='Sales')
+    st.pyplot(fig_s5)
 
 if selectbox == 'LATAM':
-    grpah6 = px.bar(df[df['Market'] == 'LATAM'], x = 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market LATAM')
-    grpah6.show() 
+    fig_s6, ax_s6 = plt.subplots()
+    data_s6 = df[df['Market'] == 'LATAM']
+    sns.barplot(data_s6, x='Segment', y='Sales')
+    st.pyplot(fig_s6)
 
 if selectbox == 'US':
-    grpah7 = px.bar(df[df['Market'] == 'US'], x = 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market US')
-    grpah7.show() 
+    fig_s7, ax_s7 = plt.subplots()
+    data_s7 = df[df['Market'] == 'US']
+    sns.barplot(data_s7, x='Segment', y='Sales')
+    st.pyplot(fig_s7)
 
 #add subheader
 st.subheader('Market Basket Analysis Results: Recommended Items from the dataset')
