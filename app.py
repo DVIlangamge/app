@@ -123,7 +123,7 @@ st.pyplot(fig_p)
 mOptions = ['None','Africa','APAC','Canada','EMEA','EU','LATAM','US']
 selectbox = st.selectbox('Select the Market:',options = mOptions)
 
-Visualizations
+#Visualizations
 if selectbox == 'Africa':
     fig_s1, ax_s1 = plt.subplots()
     data_s1 = df[df['Market'] == 'Africa']
