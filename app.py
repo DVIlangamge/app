@@ -118,6 +118,11 @@ ax_p.pie(Quantity, labels = Category, autopct='%1.1f%%', startangle = 90)
 ax_p.axis('equal')
 st.pyplot(fig_p)
 
+#Sales for each Segment by Market
+#Adding a selectbox
+mOptions = ['None','Africa','APAC','Canada','EMEA','EU','LATAM','US']
+selectbox = st.selectbox('Select the Market:',options = mOptions)
+
 #add subheader
 st.subheader('Market Basket Analysis Results: Recommended Items from the dataset')
 
