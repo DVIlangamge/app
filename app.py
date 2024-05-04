@@ -108,6 +108,16 @@ sns.heatmap(heatmap_data3, annot=True, cmap='coolwarm', fmt=".2f", ax=ax3)
 
 #add a header
 st.header('  Minger Company', divider = 'red')
+
+#pie chart for categories
+Category = 'Furniture', 'Office Supplies', 'Technology'
+Quantity = [6023, 5968, 6016]
+fig_p, ax_p = plt.subplots()
+ax_p.set_title('Quantity percentage of each category')
+ax_p.pie(Quantity, labels = Category, autopct='%1.1f%%', startangle = 90)
+ax_p.axis('equal')
+st.pyplot(fig_p)
+
 #add subheader
 st.subheader('Market Basket Analysis Results: Recommended Items from the dataset')
 
