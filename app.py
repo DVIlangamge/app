@@ -123,6 +123,35 @@ st.pyplot(fig_p)
 mOptions = ['None','Africa','APAC','Canada','EMEA','EU','LATAM','US']
 selectbox = st.selectbox('Select the Market:',options = mOptions)
 
+#Visualizations
+if selectbox == 'Africa':
+    graph1 = px.bar(df[df['Market']=='Africa'],x= 'Segment',y='Sales', height =500 , width = 500, title = 'Sales of Segment by Market Africa')
+    graph1.show()
+
+if selectbox == 'APAC':
+    graph2 = px.bar(df[df['Market']== 'APAC'], x= 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market APAC')
+    graph2.show()
+
+if selectbox == 'Canada':
+    grpah3 = px.bar(df[df['Market'] == 'Canada'], x = 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market Canada')
+    grpah3.show()
+
+if selectbox == 'EMEA':
+    grpah4 = px.bar(df[df['Market'] == 'EMEA'], x = 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market EMEA')
+    grpah4.show()
+
+if selectbox == 'EU':
+    grpah5 = px.bar(df[df['Market'] == 'EU'], x = 'Segment', y='Sales', height= 500, width = 500,title = 'Sales of Segment by Market EU')
+    grpah5.show()
+
+if selectbox == 'LATAM':
+    grpah6 = px.bar(df[df['Market'] == 'LATAM'], x = 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market LATAM')
+    grpah6.show() 
+
+if selectbox == 'US':
+    grpah7 = px.bar(df[df['Market'] == 'US'], x = 'Segment', y='Sales', height= 500, width = 500, title = 'Sales of Segment by Market US')
+    grpah7.show() 
+
 #add subheader
 st.subheader('Market Basket Analysis Results: Recommended Items from the dataset')
 
